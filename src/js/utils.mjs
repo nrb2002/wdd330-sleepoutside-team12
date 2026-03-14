@@ -4,14 +4,18 @@ export function qs(selector, parent = document) {
 }
 
 // get/set local storage
+// utils.mjs
 export function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
 }
-export function setLocalStorage(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
+
+export function setLocalStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
 }
 
 // get URL parameter
-export function getParam(param) {
-  return new URLSearchParams(window.location.search).get(param);
+export function getParam(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
 }

@@ -27,12 +27,14 @@ export default class ProductDetails {
   addProductToCart() {
     if (!this.product) return;
 
-    let cart = getLocalStorage("so-cart") || [];
+    let cart = getLocalStorage("so-cart");
+    if (!Array.isArray(cart)) cart = [];    
+    
     cart.push(this.product);
     setLocalStorage("so-cart", cart);
 
     console.log("Product added to cart:", this.product);
-  }
+}
 
   renderProductDetails() {
     const section = qs(".product-detail");
