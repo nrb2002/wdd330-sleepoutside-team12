@@ -3,12 +3,16 @@ import { qs, getLocalStorage, setLocalStorage } from './utils.mjs';
 export default class ProductDetails {
   constructor(productId, dataSource) {
     this.productId = productId;
-    this.product = {};
+    this.product = null;
     this.dataSource = dataSource;
   }
 
   async init() {
-    // fetch product details
+    if (!this.productId) {
+      console.error("No product ID in URL");
+      return;
+    }
+
     this.product = await this.dataSource.findProductById(this.productId);
 
     if (!this.product) {
@@ -16,15 +20,8 @@ export default class ProductDetails {
       return;
     }
 
-    if (!this.productId) {
-      console.error("No product id in URL");
-      return;
-    }
-
-    // render product HTML
     this.renderProductDetails();
 
-    // add click listener
     const addBtn = qs("#addToCart");
     if (addBtn) addBtn.addEventListener("click", this.addProductToCart.bind(this));
   }
@@ -32,14 +29,13 @@ export default class ProductDetails {
   addProductToCart() {
     if (!this.product) return;
 
-    let cart = getLocalStorage("so-cart");
-    if (!Array.isArray(cart)) cart = [];    
-    
-    cart.push(this.product);
+    let cart = getLocalStorage("so-cart") || [];
+    // avoid duplicates
+    if (!cart.find(p => p.Id === this.product.Id)) cart.push(this.product);
     setLocalStorage("so-cart", cart);
 
     console.log("Product added to cart:", this.product);
-}
+  }
 
   renderProductDetails() {
     const section = qs(".product-detail");
@@ -50,7 +46,7 @@ export default class ProductDetails {
 
     const img = section.querySelector("img.divider");
     if (img) {
-      img.src = this.product.Images?.PrimaryLarge || "../images/placeholder.png";
+      img.src = this.product.Images?.PrimaryLarge || "/images/placeholder.png";
       img.alt = this.product.Name || "Product Image";
     }
 
