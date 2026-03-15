@@ -1,23 +1,21 @@
-// wrapper for querySelector...returns matching element
+// wrapper for querySelector
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
 }
-// or a more concise version if you are into that sort of thing:
-// export const qs = (selector, parent = document) => parent.querySelector(selector);
 
-// retrieve data from localstorage
+// get/set local storage
+// utils.mjs
 export function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
 }
-// save data to local storage
-export function setLocalStorage(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
+
+export function setLocalStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
 }
-// set a listener for both touchend and click
-export function setClick(selector, callback) {
-  qs(selector).addEventListener("touchend", (event) => {
-    event.preventDefault();
-    callback();
-  });
-  qs(selector).addEventListener("click", callback);
+
+// get URL parameter
+export function getParam(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
 }
