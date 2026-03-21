@@ -12,10 +12,17 @@ export default class ProductData {
     this.path = `/json/${this.category}.json`; // absolute path from public folder
   }
 
-  getData() {
-    return fetch(this.path)
-      .then(convertToJson)
-      .then((data) => data);
+  // getData() {
+  //   return fetch(this.path)
+  //     .then(convertToJson)
+  //     .then((data) => data);
+  // }
+
+  async getData(){
+    const response = await fetch(this.path);
+    const data = await convertToJson(response);
+
+    return data;
   }
 
   async findProductById(id) {
