@@ -10,5 +10,3 @@ const productList = new ProductList("Tents", dataSource, element);
  HEAD
 productList.init();
 
-productList.init();
-
