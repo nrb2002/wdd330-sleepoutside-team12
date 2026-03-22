@@ -38,7 +38,14 @@ function productInfoTemplate(product) {
   productImg.src = product.Image;
   productImg.alt = product.NameWithoutBrand;
 
-  document.getElementById("product-price").textContent = product.FinalPrice;
+  document.getElementById("product-price").textContent = `$${product.FinalPrice}`;
+
+  const discount = product.SuggestedRetailPrice - product.FinalPrice;
+  const discountRounded = discount.toFixed(2);
+  if (discountRounded > 0) {
+    document.getElementById("product-discount").textContent = `You have a discount of $${discountRounded}!`;
+  }
+
   document.getElementById("product-color").textContent = product.Colors[0].ColorName;
   document.getElementById("product-description").innerHTML = product.DescriptionHtmlSimple;
 

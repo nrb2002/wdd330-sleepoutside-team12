@@ -183,6 +183,10 @@ button {
   margin: 0.5em 0;
 }
 
+.product-card__discount {
+  color: rgb(247, 42, 42);
+}
+
 .card__brand {
   font-size: var(--small-font);
 }
