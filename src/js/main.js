@@ -7,8 +7,8 @@ const element = document.querySelector(".product-list");
 
 const productList = new ProductList("Tents", dataSource, element);
 
-<<<<<<< HEAD
+ HEAD
 productList.init();
-=======
+
 productList.init();
->>>>>>> 69b3d2124c4e3a989f7f9f9a0a3ae4971d1dbca7
+
