@@ -42,7 +42,7 @@ export default class ProductDetails {
 
     // Save updated cart
     setLocalStorage("so-cart", cart);
-    //alert(`${this.product.NameWithoutBrand} added to cart`);
+    alert(`${this.product.NameWithoutBrand} added to cart`);
   }
 
   renderProductDetails() {
@@ -58,41 +58,28 @@ export default class ProductDetails {
   }
 }
 function productInfoTemplate(product) {
-  const detailSection = document.querySelector(".product-detail");
-  if (!detailSection) return;
+  const pageTitle = document.getElementById("product-title");
+  pageTitle.textContent = product.Name;
 
-  // Brand
-  const brandEl = detailSection.querySelector("h3");
-  if (brandEl) brandEl.textContent = product.Brand?.Name || "";
+  document.querySelector("h3").textContent = product.Brand.Name;
+  document.querySelector("h2").textContent = product.NameWithoutBrand;
 
-  // Product name
-  const nameEl = detailSection.querySelector("h2");
-  if (nameEl) nameEl.textContent = product.NameWithoutBrand || "";
+  const productImg = document.getElementById("product-img");
+  productImg.src = product.Image;
+  productImg.alt = product.NameWithoutBrand;
 
-  // Image
-  const imgEl = detailSection.querySelector("img");
-  if (imgEl) {
-    imgEl.src = product.Image || "";
-    imgEl.alt = product.Name || "Product image";
+  document.getElementById("product-price").textContent = `$${product.FinalPrice}`;
+
+  const discount = product.SuggestedRetailPrice - product.FinalPrice;
+  const discountRounded = discount.toFixed(2);
+  if (discountRounded > 0) {
+    document.getElementById("product-discount").textContent = `You have a discount of $${discountRounded}!`;
   }
 
-  // Price
-  const priceEl = detailSection.querySelector(".product-card__price");
-  if (priceEl) {
-    priceEl.textContent = `$${product.FinalPrice?.toFixed(2) || "0.00"}`;
-  }
+  document.getElementById("product-color").textContent = product.Colors[0].ColorName;
+  document.getElementById("product-description").innerHTML = product.DescriptionHtmlSimple;
 
-  // Color
-  const colorEl = detailSection.querySelector(".product__color");
-  if (colorEl) {
-    colorEl.textContent = product.Colors?.[0]?.ColorName || "N/A";
-  }
-
-  // Description
-  const descEl = detailSection.querySelector(".product__description");
-  if (descEl) {
-    descEl.innerHTML = product.DescriptionHtmlSimple || "";
-  }
+  document.getElementById("addToCart").dataset.id = product.Id;
 }
 
  
