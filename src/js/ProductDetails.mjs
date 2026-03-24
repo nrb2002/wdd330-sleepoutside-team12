@@ -1,5 +1,3 @@
-//ProductDetails.mjs
-
 export default class ProductDetails {
   constructor(productId, dataSource) {
     this.productId = productId;       // ID of the product to display
@@ -16,6 +14,33 @@ export default class ProductDetails {
     }
     this.renderProductDetails();
     this.attachAddToCart();
+  }
+
+   // Add product to cart and update localStorage
+  addProductToCart() {
+    if (!this.product.Id) return;
+
+    // Get existing cart from localStorage
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if product is already in cart
+    const existing = cart.find((item) => item.Id === this.product.Id);
+    if (existing) {
+      existing.Quantity += 1; // increment quantity
+    } else {
+      cart.push({
+        Id: this.product.Id,
+        Name: this.product.NameWithoutBrand,
+        Brand: this.product.Brand?.Name || "",
+        Image: this.product.Image,
+        FinalPrice: this.product.FinalPrice,
+        Quantity: 1,
+      });
+    }
+
+    // Save updated cart
+    localStorage.setItem("cart", JSON.stringify(cart));
+    //alert(`${this.product.NameWithoutBrand} added to cart`);
   }
 
   // Render the product details in the HTML
@@ -51,32 +76,7 @@ export default class ProductDetails {
     if (descEl) descEl.innerHTML = this.product.DescriptionHtmlSimple || "";
   }
 
-  // Add product to cart and update localStorage
-  addProductToCart() {
-    if (!this.product.Id) return;
-
-    // Get existing cart from localStorage
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Check if product is already in cart
-    const existing = cart.find((item) => item.Id === this.product.Id);
-    if (existing) {
-      existing.Quantity += 1; // increment quantity
-    } else {
-      cart.push({
-        Id: this.product.Id,
-        Name: this.product.NameWithoutBrand,
-        Brand: this.product.Brand?.Name || "",
-        Image: this.product.Image,
-        FinalPrice: this.product.FinalPrice,
-        Quantity: 1,
-      });
-    }
-
-    // Save updated cart
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert(`${this.product.NameWithoutBrand} added to cart`);
-  }
+ 
 
   // Attach click event to the add to cart button
   attachAddToCart() {
