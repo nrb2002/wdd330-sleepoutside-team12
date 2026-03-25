@@ -39,7 +39,7 @@ export default class ProductDetails {
 
     // Save updated cart
     setLocalStorage("so-cart", cart);
-    alert(`${this.product.NameWithoutBrand} added to cart`);
+    //alert(`${this.product.NameWithoutBrand} added to cart`);
   }
 
   renderProductDetails() {
