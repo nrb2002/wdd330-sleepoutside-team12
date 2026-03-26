@@ -1,5 +1,5 @@
 import { loadHeaderFooter } from "./utils.mjs";
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 loadHeaderFooter();
 
@@ -47,11 +47,17 @@ function renderCartContents() {
   container.innerHTML = cartItems.map(cartItemTemplate).join("");
 
   // Add grand total at the bottom
-  const grandTotal = cartItems.reduce((sum, item) => sum + (item.FinalPrice * (item.Quantity || 1)), 0);
-  const totalEl = document.createElement("li");
-  totalEl.className = "cart-grand-total";
-  totalEl.innerHTML = `<h3>Grand Total: $${grandTotal.toFixed(2)}</h3>`;
-  container.appendChild(totalEl);
+  const grandTotal = cartItems.reduce(
+    (sum, item) => sum + (item.FinalPrice * (item.Quantity || 1)),
+    0
+  );
+
+  const totalElement = document.getElementById("cart-total");
+  if (totalElement) {
+    totalElement.textContent = `$${grandTotal.toFixed(2)}`;
+  }
+
+
 
   attachQuantityListeners(); // attach event listeners after rendering
 }

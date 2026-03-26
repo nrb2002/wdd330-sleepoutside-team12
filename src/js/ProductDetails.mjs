@@ -5,7 +5,7 @@ export default class ProductDetails {
   constructor(productId, dataSource) {
     this.productId = productId;       // ID of the product to display
     this.product = {};                // Will hold the fetched product data
-    this.dataSource = dataSource;     // Instance of ProductData
+    this.dataSource = dataSource;     // Instance of ExternalServices
   }
     
   async init() {
