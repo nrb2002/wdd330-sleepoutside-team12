@@ -55,6 +55,12 @@
     display: flex;
     justify-content: space-between;
 }
+fieldset{
+    padding: 1rem;
+    font-weight: bold;
+    border-radius:.5rem;
+    background: light-gray;
+}
 
 /* MOBILE */
 @media (max-width: 768px) {
