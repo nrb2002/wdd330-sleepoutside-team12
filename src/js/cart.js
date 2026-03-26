@@ -1,7 +1,8 @@
-// cart.js
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
+import { getLocalStorage } from "./utils.mjs";
 
-// Template for each cart item
+loadHeaderFooter();
+
 function cartItemTemplate(item) {
   if (!item) return "";
 
