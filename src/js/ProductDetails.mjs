@@ -3,10 +3,10 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 export default class ProductDetails {
 
   constructor(productId, dataSource) {
-    this.productId = productId;
-    this.product = {};
-    this.dataSource = dataSource;
-    }
+    this.productId = productId;       // ID of the product to display
+    this.product = {};                // Will hold the fetched product data
+    this.dataSource = dataSource;     // Instance of ProductData
+  }
     
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
@@ -16,10 +16,30 @@ export default class ProductDetails {
       .addEventListener("click", this.addProductToCart.bind(this));
   }
     
-  addProductToCart(product) {
-    const existingCart = getLocalStorage("so-cart") || [];
-    existingCart.push(this.product);
-    setLocalStorage("so-cart", existingCart);
+  addProductToCart() {
+    if (!this.product.Id) return;
+
+    // Get existing cart from localStorage
+    const cart = getLocalStorage("so-cart") || [];
+
+    // Check if product is already in cart
+    const existingProduct = cart.find((item) => item.Id === this.product.Id);
+    if (existingProduct) {
+      existingProduct.Quantity += 1; // increment quantity
+    } else {
+      cart.push({
+        Id: this.product.Id,
+        Name: this.product.NameWithoutBrand,
+        Brand: this.product.Brand?.Name || "",
+        Image: this.product.Image,
+        FinalPrice: this.product.FinalPrice,
+        Quantity: 1,
+      });
+    }
+
+    // Save updated cart
+    setLocalStorage("so-cart", cart);
+    //alert(`${this.product.NameWithoutBrand} added to cart`);
   }
 
   renderProductDetails() {
