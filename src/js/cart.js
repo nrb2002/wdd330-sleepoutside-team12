@@ -48,7 +48,7 @@ function renderCartContents() {
 
   // Add grand total at the bottom
   const grandTotal = cartItems.reduce(
-    (sum, item) => sum + (item.FinalPrice * (item.Quantity || 1)),
+    (sum, item) => sum + (parseFloat(item.FinalPrice) * (item.Quantity || 1)),
     0
   );
 
@@ -75,33 +75,60 @@ function attachQuantityListeners() {
 
     // Input change
     input.addEventListener("change", () => {
+      let cart = getLocalStorage("so-cart") || [];
+
       let newQty = parseInt(input.value);
       if (isNaN(newQty) || newQty < 0) newQty = 0;
 
       const product = cart.find(p => p.Id === id);
       if (product) {
         if (newQty === 0) {
-          // Remove item if quantity is 0
-          const index = cart.indexOf(product);
-          cart.splice(index, 1);
+          cart = cart.filter(p => p.Id !== id);
         } else {
           product.Quantity = newQty;
         }
+
         setLocalStorage("so-cart", cart);
-        renderCartContents(); // re-render cart including grand total
+        renderCartContents();
       }
     });
 
     // Increase button
     increaseBtn.addEventListener("click", () => {
-      input.value = parseInt(input.value) + 1;
-      input.dispatchEvent(new Event("change"));
+      let cart = getLocalStorage("so-cart") || [];
+
+      const product = cart.find(p => p.Id === id);
+      if (product) {
+        product.Quantity = (product.Quantity || 1) + 1;
+
+        setLocalStorage("so-cart", cart);
+        renderCartContents();
+      }
     });
 
-    // Decrease button
+    //decrease button
     decreaseBtn.addEventListener("click", () => {
-      input.value = Math.max(0, parseInt(input.value) - 1);
-      input.dispatchEvent(new Event("change"));
+      let cart = getLocalStorage("so-cart") || [];
+
+      const product = cart.find(p => p.Id === id);
+      if (product) {
+        const newQty = (product.Quantity || 1) - 1;
+
+        if (newQty <= 0) {
+          // remove item
+          cart = cart.filter(p => p.Id !== id);
+          setLocalStorage("so-cart", cart);
+
+          // 🔥 FORCE FULL REFRESH (simple + reliable)
+          location.reload();
+          return;
+        } else {
+          product.Quantity = newQty;
+        }
+
+        setLocalStorage("so-cart", cart);
+        renderCartContents();
+      }
     });
   });
 }
