@@ -1,8 +1,3 @@
-<<<<<<< Updated upstream:src/js/ProductData.mjs
-=======
-const baseURL = "https://wdd330-backend.onrender.com:3000";
-
->>>>>>> Stashed changes:src/js/ExternalServices.mjs
 function convertToJson(res) {
   if (res.ok) {
     return res.json();
@@ -14,13 +9,13 @@ function convertToJson(res) {
 export default class ProductData {
   constructor(category) {
     this.category = category;
-    this.path = category ? `/json/${this.category}.json` : null;
+    this.path = `/json/${this.category}.json`; // absolute path from public folder
   }
 
-  async getData() {
-    if (!this.path) return [];
+  async getData(){
     const response = await fetch(this.path);
     const data = await convertToJson(response);
+
     return data;
   }
 

@@ -32,23 +32,20 @@ function cartItemTemplate(item) {
   `;
 }
 
+// Render the cart contents + grand total
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
-  const container = document.querySelector(".product-list");
+  const container = document.querySelector(".product-list"); // matches your HTML
   if (!container) return;
 
   if (cartItems.length === 0) {
     container.innerHTML = "<p>Your cart is empty.</p>";
-
-    const totalElement = document.getElementById("cart-total");
-    if (totalElement) totalElement.textContent = "$0.00";
-
     return;
   }
 
+  // Render each item
   container.innerHTML = cartItems.map(cartItemTemplate).join("");
 
-<<<<<<< Updated upstream
   // Add grand total at the bottom
   const grandTotal = cartItems.reduce((sum, item) => sum + (item.FinalPrice * (item.Quantity || 1)), 0);
   const totalEl = document.createElement("li");
@@ -57,31 +54,20 @@ function renderCartContents() {
   container.appendChild(totalEl);
 
   attachQuantityListeners(); // attach event listeners after rendering
-=======
-  const grandTotal = cartItems.reduce(
-    (sum, item) => sum + (parseFloat(item.FinalPrice) * (item.Quantity || 1)),
-    0
-  );
-
-  const totalElement = document.getElementById("cart-total");
-  if (totalElement) {
-    totalElement.textContent = `$${grandTotal.toFixed(2)}`;
-  }
-
-  attachQuantityListeners();
->>>>>>> Stashed changes
 }
 
+// Attach event listeners to quantity inputs and buttons
 function attachQuantityListeners() {
   const cartItems = document.querySelectorAll(".cart-card");
-  let cart = getLocalStorage("so-cart") || [];
+  const cart = getLocalStorage("so-cart") || [];
 
   cartItems.forEach((itemEl) => {
-    const id = parseInt(itemEl.dataset.id);
+    const id = itemEl.dataset.id;
     const input = itemEl.querySelector(".qty-input");
     const decreaseBtn = itemEl.querySelector(".decrease");
     const increaseBtn = itemEl.querySelector(".increase");
 
+    // Input change
     input.addEventListener("change", () => {
       let newQty = parseInt(input.value);
       if (isNaN(newQty) || newQty < 0) newQty = 0;
@@ -100,39 +86,19 @@ function attachQuantityListeners() {
       }
     });
 
+    // Increase button
     increaseBtn.addEventListener("click", () => {
       input.value = parseInt(input.value) + 1;
       input.dispatchEvent(new Event("change"));
     });
 
-<<<<<<< Updated upstream
     // Decrease button
     decreaseBtn.addEventListener("click", () => {
       input.value = Math.max(0, parseInt(input.value) - 1);
       input.dispatchEvent(new Event("change"));
-=======
-    decreaseBtn.addEventListener("click", () => {
-      let cart = getLocalStorage("so-cart") || [];
-
-      const product = cart.find(p => p.Id === id);
-      if (product) {
-        const newQty = (product.Quantity || 1) - 1;
-
-        if (newQty <= 0) {
-          cart = cart.filter(p => p.Id !== id);
-          setLocalStorage("so-cart", cart);
-          renderCartContents();
-          return;
-        } else {
-          product.Quantity = newQty;
-        }
-
-        setLocalStorage("so-cart", cart);
-        renderCartContents();
-      }
->>>>>>> Stashed changes
     });
   });
 }
 
+// Render cart on page load
 document.addEventListener("DOMContentLoaded", renderCartContents);

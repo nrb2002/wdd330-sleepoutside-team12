@@ -6,13 +6,7 @@ loadHeaderFooter();
 
 const dataSource = new ProductData("tents");
 const element = document.querySelector(".product-list");
+const productList = new ProductList("Tents", dataSource, element);
 
-<<<<<<< Updated upstream
 HEAD;
 productList.init();
-=======
-if (element) {
-  const productList = new ProductList("Tents", dataSource, element);
-  productList.init();
-}
->>>>>>> Stashed changes
