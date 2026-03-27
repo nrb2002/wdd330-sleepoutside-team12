@@ -1,3 +1,5 @@
+const baseURL = "https://wdd330-backend.onrender.com";
+
 function convertToJson(res) {
   if (res.ok) {
     return res.json();
@@ -6,7 +8,7 @@ function convertToJson(res) {
   }
 }
 
-export default class ProductData {
+export default class ExternalServices {
   constructor(category) {
     this.category = category;
     this.path = `/json/${this.category}.json`; // absolute path from public folder
@@ -22,5 +24,25 @@ export default class ProductData {
   async findProductById(id) {
     const products = await this.getData();
     return products.find((item) => item.Id === id);
+  }
+
+  async checkout(payload) {
+    const url = `${baseURL}/checkout`;
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    };
+
+    const response = await fetch(url, options);
+
+    if (!response.ok) {
+      throw new Error("Server error");
+    }
+
+    return await response.json();
   }
 }
