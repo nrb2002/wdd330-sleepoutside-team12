@@ -63,7 +63,7 @@ export default class CheckoutProcess {
   }
 
   async checkout(form) {
-    this.calculateOrderTotal(); // ensure totals are correct
+    this.calculateOrderTotal();
 
     const formData = new FormData(form);
     const orderData = {};
@@ -72,24 +72,24 @@ export default class CheckoutProcess {
       orderData[key] = value;
     });
 
-    // add extra fields
     orderData.orderDate = new Date().toISOString();
     orderData.items = this.packageItems(this.list);
     orderData.orderTotal = this.orderTotal.toFixed(2);
-    orderData.shipping = this.shipping;
+    orderData.shipping = Number(this.shipping);
     orderData.tax = this.tax.toFixed(2);
+
+    console.log("Sending order:", orderData); // 🔥 DEBUG
 
     try {
       const result = await this.services.checkout(orderData);
       alert("Order successful!");
 
-      // clear cart
       localStorage.removeItem(this.key);
-
       console.log(result);
+
     } catch (err) {
-      alert("Checkout failed!");
-      console.error(err);
+      console.error("SERVER ERROR:", err);
+      alert("Checkout failed! Check console.");
     }
   }
 }

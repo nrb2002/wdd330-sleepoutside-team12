@@ -1,4 +1,4 @@
-const baseURL = "https://wdd330-sleepoutside-main-baron.onrender.com";
+const baseURL = "https://wdd330-backend.onrender.com";
 
 function convertToJson(res) {
   if (res.ok) {

@@ -39,10 +39,11 @@
 }
 
 .order-summary {
-    border: 1px solid var(--light-grey);
+    border: 1px solid var(--secondary-color);
     padding: 1rem;
     border-radius: 6px;
     height: fit-content;
+    background: var(--primary-color);
 }
 
 .order-summary p {
