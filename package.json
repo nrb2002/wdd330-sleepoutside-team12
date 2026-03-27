@@ -34,8 +34,5 @@
     "last 3 opera versions",
     "last 3 ios_saf versions",
     "last 3 safari versions"
-  ],
-  "dependencies": {
-    "dotenv": "^17.3.1"
-  }
+  ]
 }
