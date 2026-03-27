@@ -53,6 +53,7 @@ export default class ProductDetails {
 
 function productInfoTemplate(product) {
   const pageTitle = document.getElementById("product-title");
+  console.log(product);
   pageTitle.textContent = product.Name;
 
   document.querySelector("h3").textContent = product.Brand.Name;
