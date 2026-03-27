@@ -8,4 +8,5 @@ const dataSource = new ExternalServices("tents");
 const element = document.querySelector(".product-list");
 const productList = new ProductList("Tents", dataSource, element);
 
+HEAD;
 productList.init();

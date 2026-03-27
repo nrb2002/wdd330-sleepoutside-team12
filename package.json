@@ -6,13 +6,13 @@
   "type": "module",
   "scripts": {
     "start": "vite",
+    "preview": "vite preview",
     "build": "vite build --emptyOutDir",
     "lint": "eslint *.js src/**/*.js",
     "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
-    "test": "jest",
-    "preview": "vite preview"
+    "test": "jest"
   },
-  "author": "Shane Thompson",
+  "author": "Wadzanai Murombedzi",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.56.0",
