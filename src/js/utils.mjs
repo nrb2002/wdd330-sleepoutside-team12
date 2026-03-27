@@ -40,23 +40,23 @@ export function renderListWithTemplate(template, parentElement, list, position =
 
 export function renderWithTemplate(template, parentElement, data, callback) {
   parentElement.innerHTML = template;
-  if(callback) {
+  if (callback) {
     callback(data);
   }
 }
 
-export async function loadTemplate(path) {
+async function loadTemplate(path) {
   const res = await fetch(path);
   const template = await res.text();
   return template;
 }
 
 export async function loadHeaderFooter() {
-  const headerTemplate = await loadTemplate("../public/partials/header.html");
-  const footerTemplate = await loadTemplate("../public/partials/footer.html");
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const footerTemplate = await loadTemplate("../partials/footer.html");
 
-  const headerElement = document.getElementById("page-header");
-  const footerElement = document.getElementById("page-footer");
+  const headerElement = document.querySelector("#page-header");
+  const footerElement = document.querySelector("#page-footer");
 
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);

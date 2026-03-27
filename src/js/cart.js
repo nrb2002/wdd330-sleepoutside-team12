@@ -1,5 +1,4 @@
-import { loadHeaderFooter } from "./utils.mjs";
-import { getLocalStorage } from "./utils.mjs";
+import { loadHeaderFooter, getLocalStorage } from "./utils.mjs";
 
 loadHeaderFooter();
 
