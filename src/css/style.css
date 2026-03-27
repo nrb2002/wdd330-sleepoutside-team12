@@ -62,6 +62,7 @@ p {
 
 .hero {
   position: relative;
+  align-items: center;
 }
 
 .hero .logo {
