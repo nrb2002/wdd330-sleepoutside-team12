@@ -1,0 +1,438 @@
+[33mcommit 0363867c7b5aaf6cb01b3d4d203190bb4dbe2dfc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mbt-team4[m[33m, [m[1;31morigin/bt-team4[m[33m)[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Fri Mar 27 13:59:42 2026 +0100
+
+    Added dotenv
+
+[33mcommit 1ee56bcf119fa95f0ac3b6f712f0acd1673acace[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Fri Mar 27 13:33:44 2026 +0100
+
+    Update ExternalServices.mjs
+    
+    Update the baseURL qith the environement variable containing the the server url.
+
+[33mcommit d33bcf1f8ec5eaff75385d1ed0dfa6148628d5a9[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Fri Mar 27 13:32:53 2026 +0100
+
+    Delete .env.sample
+
+[33mcommit 5b6f9461e3d01c935a7efbccbbc1e8c03c2b43e7[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Fri Mar 27 10:47:48 2026 +0100
+
+    New update
+    
+    Fixed bugs in header and footer.
+
+[33mcommit 70f2cccafe29bb2df6c09aaffccfdc841c5c932f[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Fri Mar 27 09:25:59 2026 +0100
+
+    Update index.html
+    
+    Fixed link to home page in cart
+
+[33mcommit 3198cafe045c00acf6eb4a1f6dc74adb432399a0[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Fri Mar 27 09:25:35 2026 +0100
+
+    Update cart.js
+
+[33mcommit 07d5bfe9f96d2afbbe299ec61657e5f592e4e156[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Fri Mar 27 08:46:54 2026 +0100
+
+    Update index.html
+
+[33mcommit 52eb04f6c8ec4dbe076b37aa5e348799c791ff9d[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Fri Mar 27 08:09:35 2026 +0100
+
+    Update index.html
+
+[33mcommit 20a052b8d68675c7fc32fe8beab87e80ff01a33f[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Fri Mar 27 08:09:27 2026 +0100
+
+    Update style.css
+
+[33mcommit 4e9669b7e85f98b44b2e109b85ab10304789d1f1[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Fri Mar 27 08:09:21 2026 +0100
+
+    Update index.html
+
+[33mcommit 4179faa5c1f0d6c30cac3b6d59090fdec10853e6[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Fri Mar 27 07:43:37 2026 +0100
+
+    Update index.html
+
+[33mcommit 9ed8c54940fd5ccea62a1c1ddaf7b5e7353586b2[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Thu Mar 26 22:51:13 2026 +0100
+
+    Update CheckoutProcess.mjs
+
+[33mcommit 5ab0e3109968eae8439c67ac023a90e6f18bcdd0[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Thu Mar 26 22:30:34 2026 +0100
+
+    Update checkout.js
+
+[33mcommit fc899ded9eee25ff6584bedd81d696b9871fd4e4[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Thu Mar 26 22:30:30 2026 +0100
+
+    Update checkout.css
+
+[33mcommit 1f976e43da2255670125bd213b29b78493502f28[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Thu Mar 26 22:30:26 2026 +0100
+
+    Update index.html
+
+[33mcommit a046f3f1f0a0ef783e699084626e06513669a265[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Thu Mar 26 20:40:40 2026 +0100
+
+    Checkout created
+
+[33mcommit 22de14a967a29619f3a5e2a568fae7bc78211ebb[m
+Merge: 1cfc475 2d68cd4
+Author: Kelsey-Hansel <kelseylhansel@gmail.com>
+Date:   Thu Mar 26 13:11:15 2026 -0500
+
+    Merge pull request #16 from nrb2002/kh--team3
+    
+    Kh  team3
+
+[33mcommit 2d68cd4160fc16d8d5941f686fcc9ad99773a2c7[m
+Merge: 227bc5c 1cfc475
+Author: Kelsey-Hansel <kelseylhansel@gmail.com>
+Date:   Thu Mar 26 13:11:02 2026 -0500
+
+    Merge branch 'main' into kh--team3
+
+[33mcommit 1cfc47540ab6ac234408e0f625e46f17d93ea03c[m
+Merge: e1c463a 0bc6a60
+Author: Baron T. <tshibasubaron@yahoo.fr>
+Date:   Wed Mar 25 23:49:41 2026 +0100
+
+    Merge pull request #15 from nrb2002/baron-individual2
+    
+    Baron individual2
+
+[33mcommit 0bc6a60d128d14573d764b5a36717c498862b544[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Wed Mar 25 23:45:03 2026 +0100
+
+    Update style.css
+    
+    Improved cart style
+
+[33mcommit 137c74e792b95877e9aeb93cd33a6fe0c9682ba4[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Wed Mar 25 23:44:39 2026 +0100
+
+    Update cart.js
+    
+    Added Cart quantities handlers
+
+[33mcommit 42e009f5f799137def07a3acb0c9a703926ac863[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Wed Mar 25 23:44:10 2026 +0100
+
+    Update ProductDetails.mjs
+
+[33mcommit e1c463a9b4f56f3348d8f938325b21a0fcce611b[m
+Merge: 02ec4d5 6e83671
+Author: Baron T. <tshibasubaron@yahoo.fr>
+Date:   Wed Mar 25 19:55:57 2026 +0100
+
+    Merge pull request #14 from nrb2002/bt-individual2
+    
+    Update index.html
+
+[33mcommit 6e836710742bf1cb8a31fa2ad34b3fb599b9177a[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Wed Mar 25 19:53:40 2026 +0100
+
+    Update index.html
+
+[33mcommit 02ec4d5d1b4308f7337b511d41451206d4d4f66b[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Wed Mar 25 19:05:03 2026 +0100
+
+    Update ProductData.mjs
+
+[33mcommit ad9621a66fc0e20da37a685a3d0bd4a8188e2bf8[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Wed Mar 25 19:00:03 2026 +0100
+
+    Create tents.json
+
+[33mcommit f26c8d356ce5e29c6cd1d4a5fe6b4240f543c5cb[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Wed Mar 25 18:59:57 2026 +0100
+
+    Create sleeping-bags.json
+
+[33mcommit d04594ededd4bcc82bf0372ef2b78a87b124a207[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Wed Mar 25 18:59:50 2026 +0100
+
+    Create backpacks.json
+
+[33mcommit ed3c5bbf448641aedecbea0f6dcc15f8cafdfa6d[m
+Merge: 69b3d21 0335398
+Author: Baron T. <tshibasubaron@yahoo.fr>
+Date:   Wed Mar 25 18:16:11 2026 +0100
+
+    Merge pull request #13 from nrb2002/baron-w02
+    
+    Baron w02
+
+[33mcommit 0335398c2b82132552c5593f6df576ff7d080490[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Tue Mar 24 23:15:22 2026 +0100
+
+    Update ProductDetails.mjs
+
+[33mcommit 1922019dccdd92c246006b808449d8a6e4ecfff2[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Tue Mar 24 23:15:19 2026 +0100
+
+    Update ProductData.mjs
+
+[33mcommit 93ed5361b0b059d088a8eafa56a54ccf9c95f5c4[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Tue Mar 24 23:15:13 2026 +0100
+
+    Update index.html
+
+[33mcommit 227bc5c339454cb71dd1e4f6bd649ddc8734af60[m
+Author: Kelsey-Hansel <kelseylhansel@gmail.com>
+Date:   Mon Mar 23 21:17:42 2026 -0500
+
+    Fixed header and footer issue.
+
+[33mcommit 28489ab463acc15250150667a52db433b6705bf7[m
+Author: Kelsey-Hansel <kelseylhansel@gmail.com>
+Date:   Mon Mar 23 13:52:08 2026 -0500
+
+    Week 3 team activity code.
+
+[33mcommit 69b3d2124c4e3a989f7f9f9a0a3ae4971d1dbca7[m
+Merge: 2b97805 59c5927
+Author: Kelsey-Hansel <kelseylhansel@gmail.com>
+Date:   Sat Mar 21 11:24:51 2026 -0500
+
+    Merge pull request #10 from nrb2002/kh--taskweek2
+    
+    kh indvidual task week 2
+
+[33mcommit 59c5927c32adc9c45729a6c23d36c31d9dbb0f07[m
+Author: Kelsey-Hansel <kelseylhansel@gmail.com>
+Date:   Sat Mar 21 11:17:08 2026 -0500
+
+    Week 2 individual task code for discount on product page.
+
+[33mcommit 01aecd51de55bf7d689429a1f5a18c9f6ac9843a[m
+Author: Kelsey-Hansel <kelseylhansel@gmail.com>
+Date:   Sat Mar 21 10:58:46 2026 -0500
+
+    Week 2 individual activity code.
+
+[33mcommit 2b978057373414f67e6a03f9838631cbbcc0bf45[m
+Merge: f8feafb 2966bc2
+Author: Kelsey-Hansel <kelseylhansel@gmail.com>
+Date:   Fri Mar 20 16:23:02 2026 -0500
+
+    Merge pull request #9 from nrb2002/kh--team2
+    
+    Week 2 Team Activity
+
+[33mcommit 2966bc2956b1f3c2eb2c0338f287d259418622cd[m
+Merge: 73ed202 f8feafb
+Author: Kelsey-Hansel <kelseylhansel@gmail.com>
+Date:   Fri Mar 20 16:22:14 2026 -0500
+
+    Merge branch 'main' into kh--team2
+
+[33mcommit 73ed202d85761ecb62cec2d9826838345fb7d7ec[m
+Author: Kelsey-Hansel <kelseylhansel@gmail.com>
+Date:   Fri Mar 20 16:17:59 2026 -0500
+
+    Fixed week 2 team activity code.
+
+[33mcommit 90d7fbd03d5ac36cbad45cf64f918a0686256c2b[m
+Author: Kelsey-Hansel <kelseylhansel@gmail.com>
+Date:   Thu Mar 19 15:15:05 2026 -0500
+
+    Week 2 team activity code progress.
+
+[33mcommit f8feafb11d3f52d6f8ae32d3f2b4770ae6628299[m
+Merge: ced319d 75934a3
+Author: Baron T. <tshibasubaron@yahoo.fr>
+Date:   Sun Mar 15 22:40:17 2026 +0100
+
+    Merge pull request #7 from nrb2002/baron-individual1
+    
+    New update
+
+[33mcommit 75934a35ebb63aa8580c86f42561934907666f97[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Sun Mar 15 22:37:21 2026 +0100
+
+    New update
+
+[33mcommit ced319d9f053d8ca2ef7f4862f98727bdb2ad30a[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Sun Mar 15 22:17:04 2026 +0100
+
+    Update utils.mjs
+
+[33mcommit 6a05d9f7d61267b8418d04930d7279574ff8b393[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Sun Mar 15 01:46:16 2026 +0100
+
+    New update
+
+[33mcommit d91e30449810e69113a1792999f75741b081452d[m
+Merge: 8953b39 3edef2d
+Author: Baron T. <tshibasubaron@yahoo.fr>
+Date:   Sun Mar 15 01:36:41 2026 +0100
+
+    Merge pull request #6 from nrb2002/wm--individual1
+    
+    Update ProductData.mjs
+
+[33mcommit 3edef2dff59a6123e1186292f941d12b9ec9f6a4[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Sun Mar 15 01:35:58 2026 +0100
+
+    Update ProductData.mjs
+
+[33mcommit 8953b3975615a8aab0d7ee2bcee7b37ced16f462[m
+Merge: 401388b e588cd6
+Author: Baron T. <tshibasubaron@yahoo.fr>
+Date:   Sun Mar 15 01:22:33 2026 +0100
+
+    Merge pull request #5 from nrb2002/kh--individual1
+    
+    Individual week 1 code for Add Item to Cart.
+
+[33mcommit e588cd6922c8423d92590e9d92e024322d5da448[m
+Merge: 9cd8663 401388b
+Author: Baron T. <tshibasubaron@yahoo.fr>
+Date:   Sun Mar 15 01:22:03 2026 +0100
+
+    Merge branch 'main' into kh--individual1
+
+[33mcommit 401388bfb644e9ca30f6c7d5052c5041100ebe3f[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Sun Mar 15 01:05:57 2026 +0100
+
+    New update
+
+[33mcommit 4b7b36e37659261d915c82914bef7727e4b41d23[m
+Merge: 5dd0919 47f1dc5
+Author: Baron T. <tshibasubaron@yahoo.fr>
+Date:   Sat Mar 14 22:34:49 2026 +0100
+
+    Merge pull request #4 from nrb2002/baron-team2
+    
+    W02 update
+
+[33mcommit 47f1dc5dd63e3a2e64707d2e2bf93050fb6a3e39[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Sat Mar 14 22:28:03 2026 +0100
+
+    W02 update
+
+[33mcommit 5dd0919126dc40142ec6e8d8c0f2221a6536a094[m
+Author: wamurombedzi <wadzamurombedzi@gmail.com>
+Date:   Sat Mar 14 00:57:37 2026 +0200
+
+    first commit
+
+[33mcommit ba41835c61da18f6557c626aa73dd02cfc11fdba[m
+Author: lubbacris <lewis.karume@icloud.com>
+Date:   Fri Mar 13 22:09:02 2026 +0200
+
+    cloned repo and ran npm
+
+[33mcommit 862bb047757904e759177ad27a7dc16026b8e08f[m
+Merge: ef0e965 599c5ac
+Author: Baron T. <tshibasubaron@yahoo.fr>
+Date:   Thu Mar 12 23:35:52 2026 +0100
+
+    Merge pull request #3 from nrb2002/baron-team2
+    
+    New update
+
+[33mcommit 599c5ac611e53c478442bba7ce42ac2e2bd172cf[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Thu Mar 12 23:18:04 2026 +0100
+
+    New update
+
+[33mcommit ef0e9654dcd17175d7a26697e767c3e9a7d14599[m
+Merge: 3f85f24 9f374df
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Wed Mar 11 22:53:05 2026 +0100
+
+    Merge branch 'main' of https://github.com/nrb2002/wdd330-sleepoutside-team12
+
+[33mcommit 3f85f243a68dc4ec897fdbd1fee33ca9069d063e[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Wed Mar 11 22:52:42 2026 +0100
+
+    Update team.txt
+
+[33mcommit 9f374df59e4b108b21dcd7a25f28f81dafe4860d[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Wed Mar 11 22:43:15 2026 +0100
+
+    Add Item to Cart
+    
+    Bug fixed.
+
+[33mcommit 9cd8663253f7eabeb4d19075fcd40057e97c3e38[m
+Author: Kelsey-Hansel <kelseylhansel@gmail.com>
+Date:   Tue Mar 10 21:42:01 2026 -0500
+
+    Individual week 1 code for Add Item to Cart.
+
+[33mcommit 6200f30c7df3c81dc780932fbc751e16eb0a7b0e[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Tue Mar 10 21:44:36 2026 +0100
+
+    Added Team members
+
+[33mcommit 8e093dc7dcc252f4771b5cd54b2214bbd96f3e69[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Sun Mar 8 01:16:03 2026 +0100
+
+    Update team.txt
+
+[33mcommit 67fa94132541047f1d0eb3aa73955e299287fd06[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Sun Mar 8 01:11:33 2026 +0100
+
+    Update team.txt
+
+[33mcommit 52d57844b3bb13a8755ddf5105c95832cab6641c[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Thu Mar 5 07:22:54 2026 +0100
+
+    Team text file added
+
+[33mcommit 282f40e6a14cc01a4bbc7517804e208e8dea32b4[m
+Author: nrb2002 <tshibasubaron@yahoo.fr>
+Date:   Thu Mar 5 07:01:23 2026 +0100
+
+    initial commit

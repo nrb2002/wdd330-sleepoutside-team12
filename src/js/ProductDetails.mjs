@@ -1,16 +1,22 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 export default class ProductDetails {
-
   constructor(productId, dataSource) {
+<<<<<<< Updated upstream
     this.productId = productId;       // ID of the product to display
     this.product = {};                // Will hold the fetched product data
     this.dataSource = dataSource;     // Instance of ProductData
+=======
+    this.productId = productId;
+    this.product = {};
+    this.dataSource = dataSource;
+>>>>>>> Stashed changes
   }
-    
+
   async init() {
     // use the datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     this.product = await this.dataSource.findProductById(this.productId);
+<<<<<<< Updated upstream
     // the product details are needed before rendering the HTML
     this.renderProductDetails();
     // once the HTML is rendered, add a listener to the Add to Cart button
@@ -18,60 +24,77 @@ export default class ProductDetails {
     document
       .getElementById("addToCart")
       .addEventListener("click", this.addProductToCart.bind(this));
+=======
+    if (this.product) {
+      this.renderProductDetails();
+      const addBtn = document.getElementById("addToCart");
+      if (addBtn) {
+        addBtn.addEventListener("click", this.addProductToCart.bind(this));
+      }
+    }
+>>>>>>> Stashed changes
   }
-    
+
   addProductToCart() {
     if (!this.product.Id) return;
 
-    // Get existing cart from localStorage
     const cart = getLocalStorage("so-cart") || [];
 
-    // Check if product is already in cart
     const existingProduct = cart.find((item) => item.Id === this.product.Id);
     if (existingProduct) {
-      existingProduct.Quantity += 1; // increment quantity
+      existingProduct.Quantity += 1;
     } else {
       cart.push({
         Id: this.product.Id,
-        Name: this.product.NameWithoutBrand,
+        Name: this.product.NameWithoutBrand || this.product.Name,
         Brand: this.product.Brand?.Name || "",
-        Image: this.product.Image,
-        FinalPrice: this.product.FinalPrice,
+        Image: this.product.Image || "",
+        FinalPrice: this.product.FinalPrice || 0,
         Quantity: 1,
       });
     }
 
-    // Save updated cart
     setLocalStorage("so-cart", cart);
-    //alert(`${this.product.NameWithoutBrand} added to cart`);
   }
 
   renderProductDetails() {
     productInfoTemplate(this.product);
-    }
+  }
 }
 
 function productInfoTemplate(product) {
   const pageTitle = document.getElementById("product-title");
-  pageTitle.textContent = product.Name;
+  if (pageTitle) pageTitle.textContent = product.Name || "";
 
-  document.querySelector("h3").textContent = product.Brand.Name;
-  document.querySelector("h2").textContent = product.NameWithoutBrand;
+  const brandEl = document.querySelector("h3");
+  if (brandEl) brandEl.textContent = product.Brand?.Name || "";
+
+  const nameEl = document.querySelector("h2");
+  if (nameEl) nameEl.textContent = product.NameWithoutBrand || product.Name || "";
 
   const productImg = document.getElementById("product-img");
-  productImg.src = product.Image;
-  productImg.alt = product.NameWithoutBrand;
-
-  document.getElementById("product-price").textContent = `$${product.FinalPrice}`;
-
-  const discount = product.SuggestedRetailPrice - product.FinalPrice;
-  const discountRounded = discount.toFixed(2);
-  if (discountRounded > 0) {
-    document.getElementById("product-discount").textContent = `You have a discount of $${discountRounded}!`;
+  if (productImg) {
+    productImg.src = product.Image || "";
+    productImg.alt = product.NameWithoutBrand || product.Name || "";
   }
 
-  document.getElementById("product-color").textContent = product.Colors[0].ColorName;
-  document.getElementById("product-description").innerHTML = product.DescriptionHtmlSimple;
+  const priceEl = document.getElementById("product-price");
+  if (priceEl) priceEl.textContent = `$${product.FinalPrice ?? 0}`;
 
-  document.getElementById("addToCart").dataset.id = product.Id;
+  const discountEl = document.getElementById("product-discount");
+  const discount = (product.SuggestedRetailPrice ?? 0) - (product.FinalPrice ?? 0);
+  if (discountEl && discount > 0) {
+    discountEl.textContent = `You have a discount of $${discount.toFixed(2)}!`;
+  }
+
+  const colorEl = document.getElementById("product-color");
+  if (colorEl && product.Colors?.[0]) {
+    colorEl.textContent = product.Colors[0].ColorName || "";
+  }
+
+  const descEl = document.getElementById("product-description");
+  if (descEl) descEl.innerHTML = product.DescriptionHtmlSimple || "";
+
+  const addBtn = document.getElementById("addToCart");
+  if (addBtn) addBtn.dataset.id = product.Id || "";
 }

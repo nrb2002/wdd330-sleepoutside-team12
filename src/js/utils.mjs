@@ -2,55 +2,65 @@
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
 }
-// or a more concise version if you are into that sort of thing:
-// export const qs = (selector, parent = document) => parent.querySelector(selector);
 
-// retrieve data from localstorage
+// retrieve data from localStorage
 export function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : null;
 }
-// save data to local storage
+
+// save data to localStorage
 export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
+
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
-  qs(selector).addEventListener("touchend", (event) => {
+  const element = qs(selector);
+  if (!element) return;
+
+  element.addEventListener("touchend", (event) => {
     event.preventDefault();
     callback();
   });
-  qs(selector).addEventListener("click", callback);
+  element.addEventListener("click", callback);
 }
 
 // get the product id from the query string
 export function getParam(param) {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get(param);
-  return product;
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
 }
 
 // Create a new function in the file utils.mjs called renderListWithTemplate and export it.
 export function renderListWithTemplate(template, parentElement, list, position = "afterbegin", clear = false) {
+<<<<<<< Updated upstream
   const htmlStrings = list.map(template);
   // if clear is true we need to clear out the contents of the parent.
   if (clear) {
     parentElement.innerHTML = "";
   }
+=======
+  if (!parentElement || !Array.isArray(list)) return;
+
+  if (clear) parentElement.innerHTML = "";
+
+  const htmlStrings = list.map(template);
+>>>>>>> Stashed changes
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
 
 export function renderWithTemplate(template, parentElement, data, callback) {
+  if (!parentElement) return;
+
   parentElement.innerHTML = template;
-  if(callback) {
-    callback(data);
-  }
+  if (callback) callback(data);
 }
 
 export async function loadTemplate(path) {
   const res = await fetch(path);
-  const template = await res.text();
-  return template;
+  if (!res.ok) throw new Error(`Failed to load template: ${path}`);
+  return await res.text();
 }
 
 export async function loadHeaderFooter() {
@@ -60,6 +70,6 @@ export async function loadHeaderFooter() {
   const headerElement = document.getElementById("page-header");
   const footerElement = document.getElementById("page-footer");
 
-  renderWithTemplate(headerTemplate, headerElement);
-  renderWithTemplate(footerTemplate, footerElement);
+  if (headerElement) renderWithTemplate(headerTemplate, headerElement);
+  if (footerElement) renderWithTemplate(footerTemplate, footerElement);
 }

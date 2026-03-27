@@ -1,18 +1,29 @@
 <!doctype html>
-
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Outside | Checkout</title>
 
-    <title>Sleep Outside | Checkout</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/checkout.css" />
 
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="css/style.css" />
+=======
+  <script src="../js/checkout.js" type="module" defer></script>
+</head>
+>>>>>>> Stashed changes
 
-    <script src="../js/checkout.js" type="module"></script>
-  </head>
+<body>
+  <header class="divider" id="page-header">
+    <div class="logo">
+      <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
+      <a href="../index.html">Sleep <span class="highlight">Outside</span></a>
+    </div>
 
+<<<<<<< Updated upstream
   <body>
     <header class="divider">
       <div class="logo">
@@ -22,8 +33,57 @@
           Sleep
           <span class="highlight">Outside</span>
         </a>
-      </div>
+=======
+    <div class="cart">
+      <a href="../cart/index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <!-- SVG paths omitted for brevity -->
+        </svg>
+      </a>
+    </div>
+  </header>
 
+  <main class="divider">
+    <section class="checkout-grid">
+      <!-- LEFT: FORM -->
+      <form id="checkout-form" class="checkout-form">
+        <h3>Customer Information</h3>
+
+        <fieldset>
+          <legend>Personal Info</legend>
+          <label>First Name <input type="text" name="fname" required /></label>
+          <label>Last Name <input type="text" name="lname" required /></label>
+          <label>Street Address <input type="text" name="street" required /></label>
+          <label>City <input type="text" name="city" required /></label>
+          <label>State <input type="text" name="state" required /></label>
+          <label>Zip Code <input type="text" name="zip" required /></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Payment Info</legend>
+          <label>Card Number <input type="text" name="cardNumber" required /></label>
+          <label>Expiration Date <input type="text" name="expiration" placeholder="MM/YY" required /></label>
+          <label>Security Code <input type="text" name="code" required /></label>
+        </fieldset>
+
+        <button type="submit" class="checkout-submit">Place Order</button>
+      </form>
+
+      <!-- RIGHT: ORDER SUMMARY -->
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <hr>
+        <p>Subtotal: <span id="subtotal">$0.00</span></p>
+        <p>Tax: <span id="tax">$0.00</span></p>
+        <p>Shipping: <span id="shipping">$0.00</span></p>
+        <hr>
+        <h2>Total: <span id="orderTotal">$0.00</span></h2>
+>>>>>>> Stashed changes
+      </div>
+    </section>
+  </main>
+
+<<<<<<< Updated upstream
       <div class="cart">
         <a href="cart/">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -70,3 +130,11 @@
     </footer>
   </body>
 </html>
+=======
+  <footer id="page-footer">
+    &copy;2025 ⛺ SleepOutside ⛺ WDD 330 ⛺ BYU-Idaho for BYU-Pathway Worldwide Online
+  </footer>
+</body>
+
+</html>
+>>>>>>> Stashed changes
