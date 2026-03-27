@@ -1,71 +1,71 @@
 /* CHECKOUT PAGE */
 .checkout-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    padding: 1rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  padding: 1rem;
 }
 
 .checkout-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .checkout-form label {
-    display: flex;
-    flex-direction: column;
-    font-size: var(--small-font);
+  display: flex;
+  flex-direction: column;
+  font-size: var(--small-font);
 }
 
 .checkout-form input {
-    padding: 0.5em;
-    border: 1px solid var(--light-grey);
-    border-radius: 4px;
+  padding: 0.5em;
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
 }
 
 .checkout-submit {
-    margin-top: 1rem;
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 0.75em;
-    border: none;
-    font-size: var(--large-font);
-    cursor: pointer;
+  margin-top: 1rem;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.75em;
+  border: none;
+  font-size: var(--large-font);
+  cursor: pointer;
 }
 
 .checkout-submit:hover {
-    background-color: var(--tertiary-color);
+  background-color: var(--tertiary-color);
 }
 
 .order-summary {
-    border: 1px solid var(--secondary-color);
-    padding: 1rem;
-    border-radius: 6px;
-    height: fit-content;
-    background: var(--primary-color);
+  border: 1px solid var(--secondary-color);
+  padding: 1rem;
+  border-radius: 6px;
+  height: fit-content;
+  background: var(--primary-color);
 }
 
 .order-summary p {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .order-summary h2 {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-between;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
-fieldset{
-    padding: 1rem;
-    font-weight: bold;
-    border-radius:.5rem;
-    background: light-gray;
+fieldset {
+  padding: 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  background: light-gray;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
-    .checkout-grid {
-        grid-template-columns: 1fr;
-    }
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
 }
