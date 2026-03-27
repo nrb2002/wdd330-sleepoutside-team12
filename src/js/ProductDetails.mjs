@@ -16,7 +16,7 @@ export default class ProductDetails {
       .addEventListener("click", this.addProductToCart.bind(this));
   }
     
-  addProductToCart(product) {
+  addProductToCart() {
     const existingCart = getLocalStorage("so-cart") || [];
     existingCart.push(this.product);
     setLocalStorage("so-cart", existingCart);
@@ -32,7 +32,7 @@ function productInfoTemplate(product) {
   document.querySelector("h2").textContent = product.NameWithoutBrand;
 
   const productImg = document.getElementById("product-img");
-  productImg.src = product.Image;
+  productImg.src = product.Images.PrimaryExtraLarge;
   productImg.alt = product.NameWithoutBrand;
 
   document.getElementById("product-price").textContent = `$${product.FinalPrice}`;
