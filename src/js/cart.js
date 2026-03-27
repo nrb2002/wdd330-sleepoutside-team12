@@ -3,6 +3,8 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 loadHeaderFooter();
 
+let cart = getLocalStorage("so-cart") || [];
+
 function cartItemTemplate(item) {
   if (!item) return "";
 
@@ -48,8 +50,8 @@ function renderCartContents() {
 
   // Add grand total at the bottom
   const grandTotal = cartItems.reduce(
-    (sum, item) => sum + (parseFloat(item.FinalPrice) * (item.Quantity || 1)),
-    0
+    (sum, item) => sum + parseFloat(item.FinalPrice) * (item.Quantity || 1),
+    0,
   );
 
   const totalElement = document.getElementById("cart-total");
@@ -57,15 +59,12 @@ function renderCartContents() {
     totalElement.textContent = `$${grandTotal.toFixed(2)}`;
   }
 
-
-
   attachQuantityListeners(); // attach event listeners after rendering
 }
 
 // Attach event listeners to quantity inputs and buttons
 function attachQuantityListeners() {
   const cartItems = document.querySelectorAll(".cart-card");
-  const cart = getLocalStorage("so-cart") || [];
 
   cartItems.forEach((itemEl) => {
     const id = itemEl.dataset.id;
@@ -75,15 +74,13 @@ function attachQuantityListeners() {
 
     // Input change
     input.addEventListener("change", () => {
-      let cart = getLocalStorage("so-cart") || [];
-
       let newQty = parseInt(input.value);
       if (isNaN(newQty) || newQty < 0) newQty = 0;
 
-      const product = cart.find(p => p.Id === id);
+      const product = cart.find((p) => p.Id === id);
       if (product) {
         if (newQty === 0) {
-          cart = cart.filter(p => p.Id !== id);
+          cart = cart.filter((p) => p.Id !== id);
         } else {
           product.Quantity = newQty;
         }
@@ -95,9 +92,8 @@ function attachQuantityListeners() {
 
     // Increase button
     increaseBtn.addEventListener("click", () => {
-      let cart = getLocalStorage("so-cart") || [];
+      const product = cart.find((p) => p.Id === id);
 
-      const product = cart.find(p => p.Id === id);
       if (product) {
         product.Quantity = (product.Quantity || 1) + 1;
 
@@ -108,15 +104,13 @@ function attachQuantityListeners() {
 
     //decrease button
     decreaseBtn.addEventListener("click", () => {
-      let cart = getLocalStorage("so-cart") || [];
-
-      const product = cart.find(p => p.Id === id);
+      const product = cart.find((p) => p.Id === id);
       if (product) {
         const newQty = (product.Quantity || 1) - 1;
 
         if (newQty <= 0) {
           // remove item
-          cart = cart.filter(p => p.Id !== id);
+          cart = cart.filter((p) => p.Id !== id);
           setLocalStorage("so-cart", cart);
 
           // 🔥 FORCE FULL REFRESH (simple + reliable)
