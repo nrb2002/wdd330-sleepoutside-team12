@@ -52,7 +52,7 @@ export async function loadTemplate(path) {
   const template = await res.text();
   return template;
 }
-
+//Dynamic header and footer
 export async function loadHeaderFooter() {
   const headerTemplate = await loadTemplate("../partials/header.html");
   const footerTemplate = await loadTemplate("../partials/footer.html");
