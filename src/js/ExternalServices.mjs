@@ -17,7 +17,6 @@ export default class ExternalServices {
   async getData(){
     const response = await fetch(this.path);
     const data = await convertToJson(response);
-
     return data;
   }
 
