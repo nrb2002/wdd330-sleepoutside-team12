@@ -14,15 +14,16 @@ export default class ExternalServices {
     this.path = `/json/${this.category}.json`; // absolute path from public folder
   }
 
-  async getData(){
-    const response = await fetch(this.path);
+  async getData(category){
+     const response = await fetch(`${baseURL}products/search/${category}`);
     const data = await convertToJson(response);
-    return data;
+    return data.Result;
   }
 
   async findProductById(id) {
-    const products = await this.getData();
-    return products.find((item) => item.Id === id);
+    const response = await fetch(`${baseURL}product/${id}`);
+    const data = await convertToJson(response);
+    return data;
   }
 
   async checkout(payload) {
