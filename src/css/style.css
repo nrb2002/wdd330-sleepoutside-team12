@@ -246,6 +246,54 @@ button {
   grid-column: 3;
 }
 
+
+/* ===== Category Cards ===== */
+
+.product-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.product-categories li {
+  text-align: center;
+}
+
+.product-categories a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--dark-grey);
+  border: 1px solid var(--light-grey);
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: white;
+}
+
+.product-categories a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-categories img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.5rem;
+}
+
+.product-categories h3 {
+  font-size: var(--large-font);
+}
+
+
+
+
+
+
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -259,6 +307,10 @@ button {
   .cart-card {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
+  }
+
+  .product-categories {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

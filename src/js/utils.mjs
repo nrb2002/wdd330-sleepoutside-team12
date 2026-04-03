@@ -63,3 +63,16 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
 }
+
+// Template function (separate = cleaner)
+export function categoryTemplate(cat) {
+  return `
+    <li>
+      <a href="/product_listing/index.html?category=${cat.name}">
+        <img src="${cat.image}" alt="${cat.label}" />
+        <h3>${cat.label}</h3>
+      </a>
+    </li>
+  `;
+}
+

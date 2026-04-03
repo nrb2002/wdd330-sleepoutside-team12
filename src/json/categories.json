@@ -1,0 +1,22 @@
+[
+  {
+    "name": "tents",
+    "label": "Tents",
+    "image": "/images/tents.svg"
+  },
+  {
+    "name": "backpacks",
+    "label": "Backpacks",
+    "image": "/images/backpacks.svg"
+  },
+  {
+    "name": "sleeping-bags",
+    "label": "Sleeping Bags",
+    "image": "/images/sleeping-bags.svg"
+  },
+  {
+    "name": "hammocks",
+    "label": "Hammocks",
+    "image": "/images/hammocks.svg"
+  }
+]

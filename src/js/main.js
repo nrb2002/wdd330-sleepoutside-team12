@@ -1,11 +1,14 @@
-import { loadHeaderFooter } from "./utils.mjs";
-import ExternalServices from "./ExternalServices.mjs";
-import ProductList from "./ProductList.mjs";
+import categories from "../json/categories.json";
+import { qs, loadHeaderFooter, renderListWithTemplate, categoryTemplate } from "./utils.mjs";
 
+
+//Display dynamic header and footer
 loadHeaderFooter();
 
-const dataSource = new ExternalServices("tents");
-const element = document.querySelector(".product-list");
-const productList = new ProductList("Tents", dataSource, element);
+//Display categories
+const container = qs(".product-categories");
 
-productList.init();
+if(container){
+    renderListWithTemplate(categoryTemplate, container, categories, "afterbegin", true);
+}
+
