@@ -32,7 +32,6 @@ export default class ProductList {
     async init() {
         try {
             const list = await this.dataSource.getData(this.category);
-            //If no product found, return a message
             if (!list || list.length === 0) {
                 this.listElement.innerHTML = "<p>No products found.</p>";
                 return;
