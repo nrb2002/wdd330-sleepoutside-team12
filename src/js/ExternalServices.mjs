@@ -11,7 +11,7 @@ function convertToJson(res) {
 export default class ExternalServices {
   constructor(category) {
     this.category = category;
-    this.path = `/json/${this.category}.json`; // absolute path from public folder
+    //this.path = `/json/${this.category}.json`; // absolute path from public folder
   }
 
   async getData(category){
@@ -23,7 +23,7 @@ export default class ExternalServices {
   async findProductById(id) {
     const response = await fetch(`${baseURL}product/${id}`);
     const data = await convertToJson(response);
-    return data;
+    return data.Result;
   }
 
   async checkout(payload) {

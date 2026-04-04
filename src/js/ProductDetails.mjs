@@ -1,5 +1,4 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import ExternalServices from "./ExternalServices.mjs";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -18,42 +17,14 @@ export default class ProductDetails {
       this.renderProductDetails();
 
       // Add to cart button listener
-      const addBtn = document.getElementById("addToCart");
-      if (addBtn) {
-        addBtn.addEventListener("click", this.addProductToCart.bind(this));
-      }
+      document
+        .getElementById("addToCart")
+        .addEventListener("click", this.addProductToCart.bind(this));
+      
     } catch (err) {
       console.error("Failed to load product:", err);
       document.querySelector(".product-detail").innerHTML = "<p>Error loading product.</p>";
     }
-  }
-
-  addProductToCart() {
-    if (!this.product.Id && !this.product.id) return;
-
-    const productId = this.product.Id || this.product.id;
-
-    // Get existing cart from localStorage
-    const cart = getLocalStorage("so-cart") || [];
-
-    // Check if product is already in cart
-    const existingProduct = cart.find((item) => item.Id === productId);
-    if (existingProduct) {
-      existingProduct.Quantity += 1;
-    } else {
-      cart.push({
-        Id: productId,
-        Name: this.product.NameWithoutBrand || this.product.Name || "Product",
-        Brand: this.product.Brand?.Name || "",
-        Image: this.product.Images?.PrimaryMedium || "placeholder.jpg",
-        FinalPrice: this.product.FinalPrice || 0,
-        Quantity: 1,
-      });
-    }
-
-    // Save updated cart
-    setLocalStorage("so-cart", cart);
-    alert(`${this.product.NameWithoutBrand || this.product.Name} added to cart!`);
   }
 
   renderProductDetails() {
@@ -86,4 +57,34 @@ export default class ProductDetails {
     // Add to cart button dataset
     document.getElementById("addToCart").dataset.id = product.Id || product.id;
   }
+
+  addProductToCart() {
+    if (!this.product.Id && !this.product.id) return;
+
+    const productId = this.product.Id || this.product.id;
+
+    // Get existing cart from localStorage
+    const cart = getLocalStorage("so-cart") || [];
+
+    // Check if product is already in cart
+    const existingProduct = cart.find((item) => item.Id === productId);
+    if (existingProduct) {
+      existingProduct.Quantity += 1;
+    } else {
+      cart.push({
+        Id: productId,
+        Name: this.product.NameWithoutBrand || this.product.Name || "Product",
+        Brand: this.product.Brand?.Name || "",
+        Image: this.product.Images?.PrimaryMedium || "placeholder.jpg",
+        FinalPrice: this.product.FinalPrice || 0,
+        Quantity: 1,
+      });
+    }
+
+    // Save updated cart
+    setLocalStorage("so-cart", cart);
+    alert(`${this.product.NameWithoutBrand || this.product.Name} added to cart!`);
+  }
+
+  
 }

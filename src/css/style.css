@@ -246,7 +246,6 @@ button {
   grid-column: 3;
 }
 
-
 /* ===== Category Cards ===== */
 
 .product-categories {
@@ -269,7 +268,9 @@ button {
   color: var(--dark-grey);
   border: 1px solid var(--light-grey);
   border-radius: 8px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   background-color: white;
 }
 
@@ -287,12 +288,6 @@ button {
 .product-categories h3 {
   font-size: var(--large-font);
 }
-
-
-
-
-
-
 
 @media screen and (min-width: 500px) {
   body {
