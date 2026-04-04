@@ -52,7 +52,7 @@ export async function loadTemplate(path) {
   const template = await res.text();
   return template;
 }
-
+//Dynamic header and footer
 export async function loadHeaderFooter() {
   const headerTemplate = await loadTemplate("../partials/header.html");
   const footerTemplate = await loadTemplate("../partials/footer.html");
@@ -63,3 +63,16 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
 }
+
+// Template function (separate = cleaner)
+export function categoryTemplate(cat) {
+  return `
+    <li>
+      <a href="/product_listing/index.html?category=${cat.name}">
+        <img src="${cat.image}" alt="${cat.label}" />
+        <h3>${cat.label}</h3>
+      </a>
+    </li>
+  `;
+}
+
