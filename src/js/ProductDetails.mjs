@@ -1,73 +1,89 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 
 export default class ProductDetails {
-
   constructor(productId, dataSource) {
     this.productId = productId;       // ID of the product to display
     this.product = {};                // Will hold the fetched product data
     this.dataSource = dataSource;     // Instance of ExternalServices
   }
-    
+
   async init() {
-    this.product = await this.dataSource.findProductById(this.productId);
-    this.renderProductDetails();
-    document
-      .getElementById("addToCart")
-      .addEventListener("click", this.addProductToCart.bind(this));
+    try {
+      this.product = await this.dataSource.findProductById(this.productId);
+      if (!this.product) {
+        document.querySelector(".product-detail").innerHTML = "<p>Product not found.</p>";
+        return;
+      }
+      this.renderProductDetails();
+
+      // Add to cart button listener
+      const addBtn = document.getElementById("addToCart");
+      if (addBtn) {
+        addBtn.addEventListener("click", this.addProductToCart.bind(this));
+      }
+    } catch (err) {
+      console.error("Failed to load product:", err);
+      document.querySelector(".product-detail").innerHTML = "<p>Error loading product.</p>";
+    }
   }
-    
+
   addProductToCart() {
-    if (!this.product.Id) return;
+    if (!this.product.Id && !this.product.id) return;
+
+    const productId = this.product.Id || this.product.id;
 
     // Get existing cart from localStorage
     const cart = getLocalStorage("so-cart") || [];
 
     // Check if product is already in cart
-    const existingProduct = cart.find((item) => item.Id === this.product.Id);
+    const existingProduct = cart.find((item) => item.Id === productId);
     if (existingProduct) {
-      existingProduct.Quantity += 1; // increment quantity
+      existingProduct.Quantity += 1;
     } else {
       cart.push({
-        Id: this.product.Id,
-        Name: this.product.NameWithoutBrand,
+        Id: productId,
+        Name: this.product.NameWithoutBrand || this.product.Name || "Product",
         Brand: this.product.Brand?.Name || "",
-        Image: this.product.Image,
-        FinalPrice: this.product.FinalPrice,
+        Image: this.product.Images?.PrimaryMedium || "placeholder.jpg",
+        FinalPrice: this.product.FinalPrice || 0,
         Quantity: 1,
       });
     }
 
     // Save updated cart
     setLocalStorage("so-cart", cart);
-    //alert(`${this.product.NameWithoutBrand} added to cart`);
+    alert(`${this.product.NameWithoutBrand || this.product.Name} added to cart!`);
   }
 
   renderProductDetails() {
-    productInfoTemplate(this.product);
-    }
-}
+    const product = this.product;
 
-function productInfoTemplate(product) {
-  const pageTitle = document.getElementById("product-title");
-  pageTitle.textContent = product.Name;
+    // Brand and name
+    document.getElementById("product-title").textContent = product.Brand?.Name || "Brand";
+    document.querySelector("h2").textContent = product.NameWithoutBrand || product.Name || "Product";
 
-  document.querySelector("h3").textContent = product.Brand.Name;
-  document.querySelector("h2").textContent = product.NameWithoutBrand;
+    // Image
+    const productImg = document.getElementById("product-img");
+    productImg.src = product.Images?.PrimaryMedium || "placeholder.jpg";
+    productImg.alt = product.NameWithoutBrand || product.Name || "Product";
 
-  const productImg = document.getElementById("product-img");
-  productImg.src = product.Image;
-  productImg.alt = product.NameWithoutBrand;
+    // Price
+    document.getElementById("product-price").textContent = `$${(product.FinalPrice || 0).toFixed(2)}`;
 
-  document.getElementById("product-price").textContent = `$${product.FinalPrice}`;
+    // Discount
+    const discount = (product.SuggestedRetailPrice || 0) - (product.FinalPrice || 0);
+    document.getElementById("product-discount").textContent = discount > 0
+      ? `You save $${discount.toFixed(2)}!`
+      : "";
 
-  const discount = product.SuggestedRetailPrice - product.FinalPrice;
-  const discountRounded = discount.toFixed(2);
-  if (discountRounded > 0) {
-    document.getElementById("product-discount").textContent = `You have a discount of $${discountRounded}!`;
+    // Color
+    document.getElementById("product-color").textContent = product.Colors?.[0]?.ColorName || "N/A";
+
+    // Description
+    document.getElementById("product-description").innerHTML = product.DescriptionHtmlSimple || "No description available";
+
+    // Add to cart button dataset
+    document.getElementById("addToCart").dataset.id = product.Id || product.id;
   }
-
-  document.getElementById("product-color").textContent = product.Colors[0].ColorName;
-  document.getElementById("product-description").innerHTML = product.DescriptionHtmlSimple;
-
-  document.getElementById("addToCart").dataset.id = product.Id;
 }
