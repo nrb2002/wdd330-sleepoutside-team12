@@ -5,7 +5,7 @@
   --primary-color: #f5c49a;
   --secondary-color: #525b0f;
   --tertiary-color: #8a470c;
-  --light-grey: #d0d0d0;
+  --light-grey: #f5eded;
   --dark-grey: #303030;
 
   /* sizes */
@@ -206,6 +206,15 @@ button {
 
 .product-detail img {
   width: 100%;
+}
+
+.product__description {
+  background-color: var(--light-grey);
+  border: 1px solid var(--primary-color);
+  border-radius: 2%;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  
 }
 
 /* Start cart list card styles */
