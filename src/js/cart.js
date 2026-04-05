@@ -1,4 +1,8 @@
-import { loadHeaderFooter, getLocalStorage, setLocalStorage } from "./utils.mjs";
+import {
+  loadHeaderFooter,
+  getLocalStorage,
+  setLocalStorage,
+} from "./utils.mjs";
 
 loadHeaderFooter();
 
@@ -14,7 +18,8 @@ function cartItemTemplate(item) {
   const brand = item.Brand || "Unknown Brand";
 
   // Ensure we have both original and final prices
-  const originalPrice = item.ListPrice ?? item.SuggestedRetailPrice ?? item.FinalPrice ?? 0;
+  const originalPrice =
+    item.ListPrice ?? item.SuggestedRetailPrice ?? item.FinalPrice ?? 0;
   const finalPrice = item.FinalPrice ?? originalPrice;
 
   const quantity = item.Quantity || 1;
@@ -82,7 +87,8 @@ function renderCartContents() {
   let totalSavings = 0;
 
   cartItems.forEach((item) => {
-    const originalPrice = item.ListPrice ?? item.SuggestedRetailPrice ?? item.FinalPrice ?? 0;
+    const originalPrice =
+      item.ListPrice ?? item.SuggestedRetailPrice ?? item.FinalPrice ?? 0;
     const finalPrice = item.FinalPrice ?? originalPrice;
     const quantity = item.Quantity ?? 1;
 
