@@ -65,7 +65,7 @@ export default class ProductDetails {
     document.getElementById("product-color").textContent = "Color: " + product.Colors?.[0]?.ColorName || "N/A";
 
     // Description
-    document.getElementById("product-description").innerHTML = "Description: " +
+    document.getElementById("product-description").innerHTML = `<strong>Product Details: </strong>` +
       product.DescriptionHtmlSimple || "No description available";
 
     // Add to cart button dataset
