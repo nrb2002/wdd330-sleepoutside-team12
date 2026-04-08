@@ -5,19 +5,23 @@ loadHeaderFooter();
 
 // Initialize CheckoutProcess
 // Pass the localStorage key AND the container for order summary
-const checkout = new CheckoutProcess("so-cart", ".order-summary");
-checkout.init();
+const myCheckout = new CheckoutProcess("so-cart", ".order-summary");
+myCheckout.init();
 
 // Calculate totals immediately on page load
 document.addEventListener("DOMContentLoaded", () => {
-  checkout.calculateOrderTotal();
+  myCheckout.calculateOrderTotal();
 });
 
 // Recalculate totals after ZIP is entered (optional if shipping changes)
 const zipInput = document.querySelector("input[name='zip']");
-zipInput.addEventListener("blur", () => {
-  checkout.calculateOrderTotal();
-});
+
+if(zipInput){
+  zipInput.addEventListener("blur", () => {
+    myCheckout.calculateOrderTotal();
+  });
+}
+
 
 // Handle form submission
 const form = document.querySelector("#checkout-form");
@@ -25,10 +29,11 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   if (!form.checkValidity()) {
-    alert("Please fill all fields correctly.");
+    //alert("Please fill all fields correctly.");
+    form.reportValidity(); //better UX than alert
     return;
   }
 
   // Use CheckoutProcess to handle checkout logic
-  checkout.checkout(form);
+  myCheckout.checkout(form);
 });
