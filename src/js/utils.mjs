@@ -76,3 +76,33 @@ export function categoryTemplate(cat) {
   `;
 }
 
+//Create a user-friendly alert message
+export function alertMessage(message, scroll = true, type = "error") {
+  //create alert container
+  const alert = document.createElement("div");
+  alert.classList.add("alert", type);
+
+  //set content (message and close button)
+  alert.innerHTML = `
+    <span>${message}</span>
+    <button class = "close-btn" >X</button>
+    `;
+
+  //Remove alert when X is clicked
+  alert.addEventListener("click", function (e) {
+    if (e.target.classList.contains("close-btn")) {
+      alert.remove();
+    }
+  });
+
+  //Display alert on to of the form
+  const main = document.querySelector("main");
+  main.prepend(alert);
+
+  //Scroll to top if needed
+  if (scroll) {
+    window.scrollTo(0,0);
+  }
+
+  setTimeout(() => { alert.remove() }, 15000) }
+
