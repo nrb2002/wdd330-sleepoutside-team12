@@ -4,12 +4,15 @@
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
   padding: 1rem;
+  max-width: 1080px;
 }
 
 .checkout-form {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  width: 100%;
+  grid-column: 1/2;
 }
 
 .checkout-form label {
@@ -62,6 +65,8 @@ fieldset {
   border-radius: 0.5rem;
   background: light-gray;
 }
+
+
 
 /* MOBILE */
 @media (max-width: 768px) {
