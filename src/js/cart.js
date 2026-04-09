@@ -116,7 +116,7 @@ function renderCartContents() {
   attachQuantityListeners();
 }
 
-// 🛠️ Attach buttons + input listeners
+// Attach buttons + input listeners
 function attachQuantityListeners() {
   const cartItems = document.querySelectorAll(".cart-card");
 
@@ -172,5 +172,5 @@ function attachQuantityListeners() {
   });
 }
 
-// 📦 Render cart on page load
+// Render cart on page load
 document.addEventListener("DOMContentLoaded", renderCartContents);

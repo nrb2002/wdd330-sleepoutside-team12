@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, alertMessage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 export default class CheckoutProcess {
@@ -94,8 +94,12 @@ export default class CheckoutProcess {
 
     } catch (err) {
       console.log("SERVER ERROR:", err.message);
-      //alert("Checkout failed! Check console.");
-      this.displayError(err.message);
+      
+      const errorMsg = typeof err.message === "object"
+        ? JSON.stringify(err.message)
+        : err.message;
+
+      alertMessage("Checkout failed: " + errorMsg);
     }
   }
 

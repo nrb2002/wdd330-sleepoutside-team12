@@ -7,6 +7,7 @@
   --tertiary-color: #8a470c;
   --light-grey: #f5eded;
   --dark-grey: #303030;
+  --light-green: #eef4c2;
 
   /* sizes */
   --font-base: 18px;
@@ -301,6 +302,38 @@ button {
 
 .product-categories h3 {
   font-size: var(--large-font);
+}
+
+/* Alert Message Style */
+/* If error message */
+.alert {
+  background-color: #ffe6e6;
+  color: #900;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #cc0000;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* If success message */
+.alert.success {
+  background-color: var(--light-green);
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+}
+/* Alert Close button */
+.alert .close-btn {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  color: inherit;
+  margin-right: 0;
+  padding: .5rem;
 }
 
 @media screen and (min-width: 500px) {
