@@ -316,6 +316,13 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1rem;  
+}
+
+.alert:empty{
+  display: none;
 }
 
 /* If success message */
