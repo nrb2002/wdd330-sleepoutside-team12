@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, alertMessage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 export default class CheckoutProcess {
@@ -82,14 +82,42 @@ export default class CheckoutProcess {
 
     try {
       const result = await this.services.checkout(orderData);
-      alert("Order successful!");
-
-      localStorage.removeItem(this.key);
+      //alert("Order successful!");
+      localStorage.removeItem(this.key); //Clear the cart
       console.log(result);
 
+      const btn = document.querySelector(".checkout-submit");
+      btn.disabled = true;
+
+      //redirect to success page
+      window.location.href = "/checkout/success.html";
+
     } catch (err) {
-      console.error("SERVER ERROR:", err);
-      alert("Checkout failed! Check console.");
+      console.log("SERVER ERROR:", err.message);
+      
+      const errorMsg = typeof err.message === "object"
+        ? JSON.stringify(err.message)
+        : err.message;
+
+      alertMessage("Checkout failed: " + errorMsg);
+    }
+  }
+
+  displayError(message) {
+    const errorElement = document.querySelector("#error-message");
+
+    if (!errorElement) return;
+
+    errorElement.innerHTML = "";
+
+    if (Array.isArray(message)) {
+      message.forEach(err => {
+        errorElement.innerHTML += `<p>${err}</p>`;
+      });
+    } else if (typeof message === "object") {
+      errorElement.innerHTML += `<p>${JSON.stringify(message)}</p>`;
+    } else {
+      errorElement.innerHTML += `<p>${message}</p>`;
     }
   }
 }

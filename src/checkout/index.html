@@ -21,6 +21,8 @@
     <main class="divider">
       <section class="checkout-grid">
         <!-- LEFT: FORM -->
+        <div id="error-message" class="error-message"></div>
+
         <form id="checkout-form" class="checkout-form">
           <h3>Customer Information</h3>
           <fieldset>
@@ -28,22 +30,22 @@
 
             <label
               >First Name
-              <input type="text" name="fname" required />
+              <input type="text" name="fname" minlength="2" pattern="[A-Za-z\s]+" autocomplete="given-name" required />
             </label>
 
             <label
               >Last Name
-              <input type="text" name="lname" required />
+              <input type="text" name="lname" minlength="2" pattern="[A-Za-z\s]+" autocomplete="family-name" required />
             </label>
 
             <label
               >Street Address
-              <input type="text" name="street" required />
+              <input type="text" name="street" autocomplete="address-line1" required />
             </label>
 
             <label
               >City
-              <input type="text" name="city" required />
+              <input type="text" name="city" autocomplete="address-line2" required />
             </label>
 
             <label
@@ -53,15 +55,26 @@
 
             <label
               >Zip Code
-              <input type="text" name="zip" required />
+              <input type="text" name="zip" pattern="[0-9]{4,10}" placeholder="Ex: 1234" required />
+            </label>
+
+            <label>
+              Phone
+              <input type="tel" name="phone" pattern="[0-9]{10}" placeholder="Ex: 0812345678" required />
+            </label>
+
+            <label>
+              Email
+              <input type="email" name="email" required />
             </label>
           </fieldset>
+
           <fieldset>
             <legend>Payment Info</legend>
 
             <label
               >Card Number
-              <input type="text" name="cardNumber" required />
+              <input type="text" name="cardNumber" pattern="[0-9]{16}" placeholder="Ex: 1234123412341234" required />
             </label>
 
             <label
@@ -70,13 +83,14 @@
                 type="text"
                 name="expiration"
                 placeholder="MM/YY"
+                pattern="^(0[1-9]|1[0-2])\/\d{2}$"
                 required
               />
             </label>
 
             <label
               >Security Code
-              <input type="text" name="code" required />
+              <input type="text" name="code" pattern="[0-9]{3,4}" placeholder="Ex: 123" required />
             </label>
           </fieldset>
           <button type="submit" class="checkout-submit">Place Order</button>
