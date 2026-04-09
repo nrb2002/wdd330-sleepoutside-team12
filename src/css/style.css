@@ -114,10 +114,9 @@ button {
 .divider {
   border-bottom: 2px solid var(--primary-color);
 
-  & #product-img{
+  & #product-img {
     border: 1px solid var(--primary-color);
     padding: 1rem;
-
   }
 }
 
