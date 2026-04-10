@@ -23,5 +23,8 @@ if (container) {
   );
 }
 
-alertMessage("Purchase now and save money! Up to 65% off.", false, "announcement");
-
+alertMessage(
+  "Purchase now and save money! Up to 65% off.",
+  false,
+  "announcement",
+);

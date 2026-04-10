@@ -66,8 +66,6 @@ fieldset {
   background: light-gray;
 }
 
-
-
 /* MOBILE */
 @media (max-width: 768px) {
   .checkout-grid {

@@ -16,12 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
 // Recalculate totals after ZIP is entered (optional if shipping changes)
 const zipInput = document.querySelector("input[name='zip']");
 
-if(zipInput){
+if (zipInput) {
   zipInput.addEventListener("blur", () => {
     myCheckout.calculateOrderTotal();
   });
 }
-
 
 // Handle form submission
 const form = document.querySelector("#checkout-form");
