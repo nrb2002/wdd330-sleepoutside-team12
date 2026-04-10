@@ -4,6 +4,7 @@ import {
   loadHeaderFooter,
   renderListWithTemplate,
   categoryTemplate,
+  alertMessage,
 } from "./utils.mjs";
 
 //Display dynamic header and footer
@@ -21,3 +22,6 @@ if (container) {
     true,
   );
 }
+
+alertMessage("Purchase now and save money! Up to 65% off.", false, "announcement");
+

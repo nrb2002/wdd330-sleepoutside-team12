@@ -98,7 +98,7 @@ export default class ProductDetails {
     }
 
     setLocalStorage("so-cart", cart);
-    //alert(`${this.product.NameWithoutBrand || this.product.Name} added to cart!`);
+    // Alert message
     alertMessage(`${this.product.NameWithoutBrand || this.product.Name} added to cart!`, false, "success")
   }
 }

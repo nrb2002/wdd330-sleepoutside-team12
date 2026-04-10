@@ -104,5 +104,5 @@ export function alertMessage(message, scroll = true, type = "error") {
     window.scrollTo(0,0);
   }
 
-  setTimeout(() => { alert.remove() }, 15000) }
+  setTimeout(() => { alert.remove() }, 50000) }
 

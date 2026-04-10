@@ -8,6 +8,8 @@
   --light-grey: #f5eded;
   --dark-grey: #303030;
   --light-green: #eef4c2;
+  --sky-blue: #52aaca;
+  --light-blue: #d8eff7;
 
   /* sizes */
   --font-base: 18px;
@@ -307,10 +309,12 @@ button {
 /* If error message */
 .alert {
   background-color: #ffe6e6;
-  color: #900;
+  /* color: #900; */
   padding: 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid #cc0000;
+  margin-bottom: 1rem;  
+  border-style: 1px solid;
+  border-left:.5rem solid; 
+  border-color: #cc0000;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
@@ -327,8 +331,12 @@ button {
 /* If success message */
 .alert.success {
   background-color: var(--light-green);
-  color: var(--secondary-color);
-  border: 1px solid var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+/* If announcement message */
+.alert.announcement {
+  background-color: var(--light-blue);
+  border-color: var(--sky-blue);
 }
 /* Alert Close button */
 .alert .close-btn {
