@@ -44,14 +44,35 @@ export default class ProductList {
     }
   }
 
-    renderList(list) {
-        // Pass the category as the second argument to the template
-        renderListWithTemplate(
-            (product) => productCardTemplate(product, this.category), 
-            this.listElement, 
-            list, 
-            "afterbegin", 
-            true
-        );
+  renderList(list) {
+      // Pass the category as the second argument to the template
+      renderListWithTemplate(
+          (product) => productCardTemplate(product, this.category), 
+          this.listElement, 
+          list, 
+          "afterbegin", 
+          true
+      );
+  }
+  
+  async sortPrice() {
+    const list = await this.dataSource.getData(this.category);
+      if (!list || list.length === 0) {
+        this.listElement.innerHTML = "<p>No products found.</p>";
+        return;
     }
+    const priceList = list.sort((a, b) => a.FinalPrice - b.FinalPrice);
+    this.renderList(priceList);
+
+  }
+
+  async sortName() {
+    const list = await this.dataSource.getData(this.category);
+      if (!list || list.length === 0) {
+        this.listElement.innerHTML = "<p>No products found.</p>";
+        return;
+    }
+    const nameList = list.sort((a, b) => a.NameWithoutBrand.localeCompare(b.NameWithoutBrand));
+    this.renderList(nameList);
+  }
 }

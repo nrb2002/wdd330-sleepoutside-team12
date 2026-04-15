@@ -10,3 +10,14 @@ const element = document.querySelector(".product-list"); //select the element to
 const productsByCategory = new ProductList(category, dataSource, element); //Create an instance of the product list
 
 productsByCategory.init(); //call the init method to display products matching the selected category.
+
+const priceButton = document.querySelector("#priceSort");
+const nameButton = document.querySelector("#nameSort");
+priceButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  productsByCategory.sortPrice();
+});
+nameButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  productsByCategory.sortName();
+});

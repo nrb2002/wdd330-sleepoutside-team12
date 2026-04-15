@@ -165,6 +165,12 @@ button {
   padding: 1rem;
 }
 
+#productSort {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+}
+
 .product-list {
   display: flex;
   flex-flow: row wrap;
